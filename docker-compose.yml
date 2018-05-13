@@ -1,0 +1,17 @@
+version: '2'
+services:
+    nginx:
+        image: nginx:latest
+        ports:
+            - "8080:80"
+        volumes:
+            - ./hosts:/etc/nginx/conf.d
+            - ./www:/var/www
+        links:
+            - php
+    php:
+        build: ./images/php
+        volumes:
+            - ./www:/var/www
+        environment:
+            XDEBUG_CONFIG: remote_host=127.0.0.1
