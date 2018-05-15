@@ -16,8 +16,6 @@ RUN apt-get update && apt-get install -y \
 
 RUN pecl install xdebug-2.5.5 && docker-php-ext-enable xdebug    
 
-ADD php.ini /usr/local/etc/php/conf.d/40-custom.ini
-
 WORKDIR /var/www
 
 CMD ["php-fpm"]

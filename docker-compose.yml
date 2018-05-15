@@ -13,5 +13,6 @@ services:
         build: ./images/php
         volumes:
             - ./www:/var/www
+            - ./config/php.ini:/usr/local/etc/php/conf.d/40-custom.ini
         environment:
             XDEBUG_CONFIG: remote_host=127.0.0.1
